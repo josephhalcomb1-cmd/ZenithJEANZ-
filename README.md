@@ -1,0 +1,39 @@
+# Zenith Jeanz — runway site
+
+A single-page runway: models walk toward the viewer in an endless perspective loop.
+Hovering a model freezes the runway, and tapping one opens its product view.
+The browser Back button closes it.
+
+## Run
+
+```sh
+python3 build.py                 # regenerates index.html
+python3 -m http.server 8000      # then open http://localhost:8000
+```
+
+## Files
+
+| Path | What it is |
+|---|---|
+| `index.html` | The built site with CSS and JS inline. Generated, so don't edit by hand. |
+| `template.html` | Page source that `build.py` fills in. |
+| `build.py` | Finds the clips in `media/` (one model each, sorted by filename) and inlines the logo, nav and product data. It transcodes any clip a browser can't play inline to H.264 MP4. |
+| `media/NN_*.mp4` | Runway clips: 460×900 H.264, white background, crossfaded so they loop. |
+| `brand/products.json` | Product name, description and price, plus sizes and currency. Entries are matched to clips in filename order. |
+| `brand/logo.svg` | Stacked logo traced from `logo-original.jpg`. |
+| `brand/logo-horizontal.svg` | Horizontal lockup used in the header. |
+| `brand/garment-sheet.png` | The original garment and price sheet. |
+
+## Adding or replacing a look
+
+1. Put the clip in `media/`. The filename prefix sets its runway position, for example `10_sacloth-hoodie.mp4`.
+2. Make sure the entry at the same position in `brand/products.json` describes it.
+3. Run `python3 build.py`.
+
+Raw clips should be full-body shots of a model walking toward the camera on a white
+background. The supplied Higgsfield clips came in 16:9 on a grey backdrop. They were
+cropped to portrait and cut out onto pure white (rembg `u2net_human_seg`), then
+crossfaded over the last 0.5 s so the loop doesn't jump.
+
+If a clip is missing or fails to load, that model shows a solid `#DCE3EA` fill.
+The fill moves, dims and opens the product view the same way a video does.

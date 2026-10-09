@@ -1,0 +1,57 @@
+{
+  "currency": "$",
+  "sizes": ["S", "M", "L", "XL", "XXL"],
+  "defaultSize": "M",
+  "products": [
+    {
+      "name": "Canvas Vest & Diamond Denim Shorts",
+      "description": "Cropped brown canvas vest over light-wash denim shorts cut with diamond-panel inserts. Vest $85 · Shorts $185.",
+      "price": 270
+    },
+    {
+      "name": "Blue Flannel Hoodie & Floral Shorts",
+      "description": "Oversized blue plaid flannel hoodie with black and blue floral shorts finished in a raw, frayed hem. Hoodie $210 · Shorts $235.",
+      "price": 445
+    },
+    {
+      "name": "Pink Diamond Canvas Vest & Shorts",
+      "description": "Tan canvas vest with a pink diamond shoulder appliqué, paired with pink diamond patchwork denim shorts. Vest $305 · Shorts $238.",
+      "price": 543
+    },
+    {
+      "name": "Gray Work Jacket & Pink Diamond Vest",
+      "description": "Gray work jacket layered under a pink diamond satin vest, worn with pink beaded floral gray shorts. Jacket $220 · Vest $300 · Shorts $385.",
+      "price": 905
+    },
+    {
+      "name": "Pink Organza Slip & Beaded Work Jacket",
+      "description": "Pink organza slip dress under a green beaded work jacket, over brown double-fly Armorn denim jeans. Dress $480 · Jacket $500 · Jeans $333.",
+      "price": 1313
+    },
+    {
+      "name": "Beaded Denim Bomber & Floral Jeans",
+      "description": "Double-layered denim bomber with hand-beaded florals, worn open over green and pink floral denim jeans. Bomber $585 · Jeans $385.",
+      "price": 970
+    },
+    {
+      "name": "Beaded Orange Work Jacket & Green Jeans",
+      "description": "Orange canvas work jacket with tonal beadwork, over green beaded denim jeans encrusted from hip to hem. Jacket $385 · Jeans $485.",
+      "price": 870
+    },
+    {
+      "name": "Cropped Black Jacket & Mocha Jeans",
+      "description": "Cropped black work jacket with mocha denim jeans overlaid in black beading. Jacket $255 · Jeans $500.",
+      "price": 755
+    },
+    {
+      "name": "Beaded Bomber & Pink Diamond Denim",
+      "description": "Double-layered denim beaded bomber over black denim set with pink diamond embroidery. Bomber $488 · Denim $598.",
+      "price": 1086
+    },
+    {
+      "name": "Sacloth Hoodie & Ocean Bead Denim",
+      "description": "Sacloth hoodie under a tan canvas work jacket, with blue-wash denim under an ocean bead overlay. Hoodie $250 · Jacket $380 · Denim $685.",
+      "price": 1315
+    }
+  ]
+}

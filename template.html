@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zenith Jeanz</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #fff; overflow: hidden; }
+  body {
+    font-family: "Suisse Intl", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #000;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a { color: #000; text-decoration: none; }
+
+  /* ---------- stage ---------- */
+  #viewport { position: fixed; inset: 0; overflow: hidden; background: #fff; }
+  #stage {
+    position: absolute; left: 50%; bottom: 0;
+    width: 1440px; height: 900px;
+    transform-origin: bottom center;
+    background: #fff; overflow: hidden;
+  }
+
+  /* ---------- logo ---------- */
+  #logo {
+    position: fixed; left: 16px; top: 18px;
+    width: 221.2px; height: 44px;
+    z-index: 100000; transform-origin: top left; display: block;
+  }
+  #logo svg { width: 100%; height: 100%; display: block; }
+
+  /* ---------- nav ---------- */
+  #nav {
+    position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%);
+    display: flex; gap: 4px; z-index: 100001;
+  }
+  .pill {
+    background: rgba(0,0,0,0.05);
+    -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    border-radius: 200px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pill.icon { width: 28px; padding: 0; border: 0; cursor: pointer; }
+  .pill.icon svg { width: 14px; height: 14px; display: block; }
+  .pill.links { width: 600px; padding: 6px 24px; justify-content: space-between; }
+  .pill.links a {
+    text-transform: uppercase; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.2px; line-height: 16px; color: #000;
+  }
+
+  /* ---------- models ---------- */
+  .model {
+    position: absolute; left: 0; top: 0;
+    width: 1200px; height: 2980px;
+    transform-origin: 0 0; will-change: transform;
+    cursor: pointer;
+  }
+  .model .inner {
+    /* 20% wider than the model box so wide silhouettes aren't clipped,
+       while the white frame still occludes only a narrow band */
+    position: absolute; top: 0; bottom: 0; left: -10%; right: -10%;
+    overflow: hidden;
+    transition: opacity 0.45s ease;
+  }
+  .model video {
+    position: absolute; top: 0; left: 50%;
+    height: 109.29%; width: auto;
+    transform: translate(-50%, -4%); transform-origin: top center;
+    pointer-events: none;
+  }
+  .model .filler { position: absolute; top: 0; bottom: 0; left: 8.3333%; right: 8.3333%; background: __FALLBACK__; }
+  .model.dim .inner { opacity: 0.7; }
+  .model.gone .inner { opacity: 0; }
+  .model.gone { pointer-events: none; }
+  .model.animating { transition: transform 0.65s cubic-bezier(.65,0,.35,1); }
+
+  /* ---------- detail panels ---------- */
+  .panel {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column;
+    text-transform: uppercase; font-size: 12px; font-weight: 600; color: #000;
+    letter-spacing: 0.2px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+    z-index: 100002;
+  }
+  body.detail .panel { opacity: 1; visibility: visible; transition: opacity 0.5s ease 0.15s, visibility 0s; }
+  #left { left: 24px; width: 220px; gap: 20px; align-items: flex-start; text-align: left; }
+  #left .desc { line-height: 1.45; }
+  #right { right: 24px; width: 154px; gap: 12px; align-items: flex-end; text-align: right; }
+  .u { text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+  .sizes { display: flex; gap: 15px; }
+  .sizes span { cursor: pointer; }
+  .sizes span.on { text-decoration: underline; text-underline-offset: 2px; }
+  .price {
+    font-family: "Instrument Serif", "Didot", "Bodoni 72", "Times New Roman", Times, serif;
+    font-variant-numeric: lining-nums; font-feature-settings: "lnum" 1, "onum" 0;
+    font-size: 40px; letter-spacing: -0.8px; line-height: 1; font-weight: 400;
+  }
+  .cart {
+    width: 107px; height: 32px; border-radius: 23px; border: 0;
+    background: #000; color: #fff; cursor: pointer;
+    font: inherit; font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.2px;
+  }
+
+  /* narrow screens: panels move above / below the centred model */
+  @media (max-width: 759px) {
+    .panel { top: auto; transform: none; }
+    #left { top: 84px; left: 16px; right: 16px; width: auto; gap: 8px; }
+    #left .desc { display: none; }
+    #right {
+      bottom: 64px; left: 16px; right: 16px; width: auto;
+      flex-direction: row; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 10px 12px;
+    }
+    #right { bottom: 104px; }
+    #right .price { font-size: 32px; }
+    #nav { flex-wrap: wrap; justify-content: center; row-gap: 6px; }
+    .pill.links { order: 2; width: 100%; padding: 6px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<a id="logo" href="#" aria-label="Zenith Jeanz">__LOGO__</a>
+
+<div id="viewport">
+<div id="stage">
+  <nav id="nav" aria-label="Main">
+    <button class="pill icon" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    <div class="pill links">
+      __NAV__
+    </div>
+    <button class="pill icon" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+    <button class="pill icon" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+    <button class="pill icon" aria-label="Cart"><svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
+  </nav>
+</div>
+</div>
+
+<aside class="panel" id="left" aria-live="polite">
+  <div class="name"></div>
+  <div class="desc"></div>
+  <a class="u" href="#" onclick="return false">more details</a>
+</aside>
+<aside class="panel" id="right">
+  <a class="u" href="#" onclick="return false">add to wishlist</a>
+  <div class="sizes"></div>
+  <div class="price"></div>
+  <button class="cart">add to cart</button>
+</aside>
+
+<script>
+(function () {
+  var DATA = __DATA__;
+
+  var stage = document.getElementById("stage");
+  var logo = document.getElementById("logo");
+  var leftP = document.getElementById("left");
+  var rightP = document.getElementById("right");
+  var nav = document.getElementById("nav");
+
+  /* ---------- cover scaling ---------- */
+  var coverScale = 1;
+  function layout() {
+    coverScale = Math.max(innerWidth / 1440, innerHeight / 900);
+    stage.style.transform = "translateX(-50%) scale(" + coverScale + ")";
+    logo.style.transform = "scale(" + coverScale + ")";
+    // narrow screens: nav wraps to two rows sized to the visible width
+    nav.style.width = innerWidth < 760 ? ((innerWidth - 32) / coverScale) + "px" : "";
+  }
+
+  /* ---------- perspective path ---------- */
+  var CX = [-96.5, -1.0, 108.5, 263, 460.5, 694, 1013, 1422.5, 1832];
+  var BY = [506, 521, 554, 600, 662, 736, 831, 961, 1091];
+  var SC = [0.034167, 0.046667, 0.0675, 0.098333, 0.139167, 0.188333, 0.251667, 0.339167, 0.4572];
+  var NAT_W = 1200, NAT_H = 2980;
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function place(el, q) {
+    var i = Math.floor(q), f = q - i;
+    if (i >= 8) { i = 7; f = 1; }
+    var s = lerp(SC[i], SC[i + 1], f);
+    var cx = lerp(CX[i], CX[i + 1], f);
+    var by = lerp(BY[i], BY[i + 1], f);
+    var x = cx - (NAT_W * s) / 2;
+    var y = by - (NAT_H * s);
+    el.style.transform = "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")";
+    el.style.zIndex = String(Math.round(s * 10000));
+  }
+
+  /* ---------- build models ---------- */
+  var list = DATA.models.length ? DATA.models : [];
+  var N = list.length || 7;
+  var models = [];
+
+  function useFiller(m) {
+    if (m.filler) return;
+    if (m.video) { m.video.remove(); m.video = null; }
+    var d = document.createElement("div");
+    d.className = "filler";
+    m.inner.appendChild(d);
+    m.filler = d;
+  }
+
+  for (var i = 0; i < N; i++) {
+    var src = list[i] ? list[i].src : null;
+    var p = DATA.products[i % DATA.products.length];
+    var el = document.createElement("div");
+    el.className = "model";
+    el.setAttribute("role", "button");
+    el.setAttribute("aria-label", p.name);
+    var inner = document.createElement("div");
+    inner.className = "inner";
+    el.appendChild(inner);
+    var m = { el: el, inner: inner, video: null, filler: null, product: p, index: i };
+    if (src) {
+      var v = document.createElement("video");
+      v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+      v.setAttribute("muted", ""); v.setAttribute("loop", ""); v.setAttribute("autoplay", "");
+      v.setAttribute("playsinline", ""); v.setAttribute("preload", "auto");
+      v.src = src;
+      (function (m, v, i) {
+        v.addEventListener("loadedmetadata", function () {
+          if (v.duration && isFinite(v.duration)) v.currentTime = (i / N) * v.duration;
+        });
+        v.addEventListener("error", function () { useFiller(m); });
+      })(m, v, i);
+      inner.appendChild(v);
+      m.video = v;
+    } else {
+      useFiller(m);
+    }
+    stage.insertBefore(el, document.getElementById("nav"));
+    models.push(m);
+  }
+
+  function playAll() { models.forEach(function (m) { if (m.video) { var r = m.video.play(); if (r && r.catch) r.catch(function () {}); } }); }
+  function pauseAll(except) { models.forEach(function (m) { if (m.video && m !== except) m.video.pause(); }); }
+
+  /* ---------- runway loop ---------- */
+  var PERIOD = 8, SLOT_MS = 3600, SPACING = PERIOD / N;
+  var prog = 0, lastTime = null, paused = false, selected = null;
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function placeAll() {
+    for (var i = 0; i < models.length; i++) {
+      if (models[i] === selected) continue;
+      place(models[i].el, (i * SPACING + prog) % PERIOD);
+    }
+  }
+  function frame(now) {
+    if (lastTime === null) lastTime = now;
+    var dt = now - lastTime; lastTime = now;
+    if (!paused) {
+      prog = (prog + dt / SLOT_MS) % PERIOD;
+      placeAll();
+    }
+    requestAnimationFrame(frame);
+  }
+  layout();
+  placeAll();
+  if (!reduce) requestAnimationFrame(frame);
+
+  /* ---------- hover (pointer devices only) ---------- */
+  var canHover = window.matchMedia && matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (canHover) {
+    models.forEach(function (m) {
+      m.el.addEventListener("mouseenter", function () {
+        if (selected) return;
+        paused = true;
+        models.forEach(function (o) {
+          if (o === m) { o.el.classList.remove("dim"); if (o.video) o.video.play().catch(function () {}); }
+          else { o.el.classList.add("dim"); if (o.video) o.video.pause(); }
+        });
+      });
+      m.el.addEventListener("mouseleave", function () {
+        if (selected) return;
+        models.forEach(function (o) { o.el.classList.remove("dim"); });
+        paused = reduce ? true : false;
+        lastTime = null;
+        playAll();
+      });
+    });
+  }
+
+  /* ---------- detail view ---------- */
+  var narrow = function () { return innerWidth < 760; };
+
+  function detailTransform(el) {
+    var cs = coverScale, vw = innerWidth, vh = innerHeight;
+    var s, centreY;
+    if (narrow()) {
+      // room for the name above and the price row below
+      var top = 130, bottom = 190;
+      var avail = Math.max(vh - top - bottom, vh * 0.45);
+      s = avail / (NAT_H * cs);
+      centreY = top + avail / 2;
+    } else {
+      s = (vh * 0.9) / (NAT_H * cs);
+      var maxBoxW = vw - 2 * 300;
+      if (NAT_W * s * cs > maxBoxW) s = maxBoxW / (NAT_W * cs);
+      centreY = vh / 2;
+    }
+    var mcy = 900 - (vh - centreY) / cs;   // stage-y that maps to centreY
+    var x = 720 - (NAT_W * s) / 2;
+    var y = mcy - (NAT_H * s) / 2;
+    el.style.transform = "translate3d(" + x + "px," + y + "px,0) scale(" + s + ")";
+  }
+
+  function fillPanels(p) {
+    leftP.querySelector(".name").textContent = p.name;
+    leftP.querySelector(".desc").textContent = p.description;
+    rightP.querySelector(".price").textContent = DATA.currency + p.price;
+    var sz = rightP.querySelector(".sizes");
+    sz.innerHTML = "";
+    DATA.sizes.forEach(function (s) {
+      var span = document.createElement("span");
+      span.textContent = s;
+      if (s === DATA.defaultSize) span.className = "on";
+      span.addEventListener("click", function () {
+        sz.querySelectorAll("span").forEach(function (x) { x.className = ""; });
+        span.className = "on";
+      });
+      sz.appendChild(span);
+    });
+  }
+
+  var closeTimer = null;
+  function open(m) {
+    if (selected) return;
+    clearTimeout(closeTimer);
+    selected = m;
+    paused = true;
+    fillPanels(m.product);
+    models.forEach(function (o) {
+      o.el.classList.remove("dim");
+      if (o !== m) { o.el.classList.add("gone"); if (o.video) o.video.pause(); }
+    });
+    if (m.video) m.video.play().catch(function () {});
+    m.el.style.zIndex = "50000";
+    m.el.classList.add("animating");
+    void m.el.offsetWidth;
+    detailTransform(m.el);
+    document.body.classList.add("detail");
+    history.pushState({ zjDetail: m.index }, "");
+  }
+
+  function close() {
+    if (!selected) return;
+    var m = selected;
+    document.body.classList.remove("detail");
+    models.forEach(function (o) { o.el.classList.remove("gone"); });
+    // glide back to the exact runway slot it left
+    place(m.el, (m.index * SPACING + prog) % PERIOD);
+    m.el.style.zIndex = "50000";
+    closeTimer = setTimeout(function () {
+      m.el.classList.remove("animating");
+      selected = null;
+      placeAll();
+      place(m.el, (m.index * SPACING + prog) % PERIOD);
+      paused = reduce ? true : false;
+      lastTime = null;
+      playAll();
+    }, 660);
+  }
+
+  models.forEach(function (m) {
+    m.el.addEventListener("click", function () { open(m); });
+  });
+  window.addEventListener("popstate", function () { close(); });
+
+  /* ---------- resize ---------- */
+  window.addEventListener("resize", function () {
+    layout();
+    if (selected) {
+      selected.el.classList.remove("animating");
+      detailTransform(selected.el);
+      void selected.el.offsetWidth;
+      selected.el.classList.add("animating");
+    }
+    if (paused || reduce) placeAll();
+  });
+
+  playAll();
+})();
+</script>
+</body>
+</html>
