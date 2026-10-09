@@ -373,6 +373,11 @@
   });
   window.addEventListener("popstate", function () { close(); });
 
+  // the clipped containers must never scroll (e.g. focus moving to an off-screen model)
+  [document.getElementById("viewport"), stage].forEach(function (c) {
+    c.addEventListener("scroll", function () { c.scrollLeft = 0; c.scrollTop = 0; });
+  });
+
   /* ---------- resize ---------- */
   window.addEventListener("resize", function () {
     layout();
