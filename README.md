@@ -8,6 +8,9 @@ Shoppers can buy a whole look or single pieces. The nav filters the runway, and
 search, wishlist and cart all work. Checkout goes through Shopify once it's connected.
 See `SHOPIFY_SETUP.md`.
 
+Hosting: GitHub Pages serves the site at zenithjeanz.com, and Shopify runs on
+shop.zenithjeanz.com. See `DOMAIN_SETUP.md`.
+
 ## Run
 
 ```sh
