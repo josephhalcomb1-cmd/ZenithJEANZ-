@@ -1,0 +1,7 @@
+{
+  "_help": "Fill these in to connect Shopify (see SHOPIFY_SETUP.md), then run: python3 build.py. Left blank, the site runs in demo mode: everything works except checkout.",
+  "shopDomain": "",
+  "storefrontToken": "",
+  "apiVersion": "2025-07",
+  "showsUrl": ""
+}

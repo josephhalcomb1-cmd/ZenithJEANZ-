@@ -1,0 +1,116 @@
+Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Inventory Tracker,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Requires Shipping,Variant Taxable,Status
+zj-01-canvas-vest,Canvas Vest,<p>Cropped brown canvas vest over light-wash denim shorts cut with diamond-panel inserts.</p><p>Part of the look: Canvas Vest &amp; Diamond Denim Shorts.</p>,Zenith Jeanz,Top,"men, denim, look-01, top",TRUE,Size,S,ZJ-01-CANVAS-VEST-S,,deny,manual,85.00,TRUE,TRUE,active
+zj-01-canvas-vest,,,,,,,,M,ZJ-01-CANVAS-VEST-M,,deny,manual,85.00,TRUE,TRUE,
+zj-01-canvas-vest,,,,,,,,L,ZJ-01-CANVAS-VEST-L,,deny,manual,85.00,TRUE,TRUE,
+zj-01-canvas-vest,,,,,,,,XL,ZJ-01-CANVAS-VEST-XL,,deny,manual,85.00,TRUE,TRUE,
+zj-01-canvas-vest,,,,,,,,XXL,ZJ-01-CANVAS-VEST-XXL,,deny,manual,85.00,TRUE,TRUE,
+zj-01-diamond-denim-shorts,Diamond Denim Shorts,<p>Cropped brown canvas vest over light-wash denim shorts cut with diamond-panel inserts.</p><p>Part of the look: Canvas Vest &amp; Diamond Denim Shorts.</p>,Zenith Jeanz,Bottoms,"men, denim, look-01, bottoms",TRUE,Size,S,ZJ-01-DIAMOND-DENIM-SHORTS-S,,deny,manual,185.00,TRUE,TRUE,active
+zj-01-diamond-denim-shorts,,,,,,,,M,ZJ-01-DIAMOND-DENIM-SHORTS-M,,deny,manual,185.00,TRUE,TRUE,
+zj-01-diamond-denim-shorts,,,,,,,,L,ZJ-01-DIAMOND-DENIM-SHORTS-L,,deny,manual,185.00,TRUE,TRUE,
+zj-01-diamond-denim-shorts,,,,,,,,XL,ZJ-01-DIAMOND-DENIM-SHORTS-XL,,deny,manual,185.00,TRUE,TRUE,
+zj-01-diamond-denim-shorts,,,,,,,,XXL,ZJ-01-DIAMOND-DENIM-SHORTS-XXL,,deny,manual,185.00,TRUE,TRUE,
+zj-02-blue-flannel-hoodie,Blue Flannel Hoodie,"<p>Oversized blue plaid flannel hoodie with black and blue floral shorts finished in a raw, frayed hem.</p><p>Part of the look: Blue Flannel Hoodie &amp; Floral Shorts.</p>",Zenith Jeanz,Top,"men, look-02, top",TRUE,Size,S,ZJ-02-BLUE-FLANNEL-HOODIE-S,,deny,manual,210.00,TRUE,TRUE,active
+zj-02-blue-flannel-hoodie,,,,,,,,M,ZJ-02-BLUE-FLANNEL-HOODIE-M,,deny,manual,210.00,TRUE,TRUE,
+zj-02-blue-flannel-hoodie,,,,,,,,L,ZJ-02-BLUE-FLANNEL-HOODIE-L,,deny,manual,210.00,TRUE,TRUE,
+zj-02-blue-flannel-hoodie,,,,,,,,XL,ZJ-02-BLUE-FLANNEL-HOODIE-XL,,deny,manual,210.00,TRUE,TRUE,
+zj-02-blue-flannel-hoodie,,,,,,,,XXL,ZJ-02-BLUE-FLANNEL-HOODIE-XXL,,deny,manual,210.00,TRUE,TRUE,
+zj-02-black-blue-floral-shorts,Black & Blue Floral Shorts,"<p>Oversized blue plaid flannel hoodie with black and blue floral shorts finished in a raw, frayed hem.</p><p>Part of the look: Blue Flannel Hoodie &amp; Floral Shorts.</p>",Zenith Jeanz,Bottoms,"men, look-02, bottoms",TRUE,Size,S,ZJ-02-BLACK-BLUE-FLORAL-SHORTS-S,,deny,manual,235.00,TRUE,TRUE,active
+zj-02-black-blue-floral-shorts,,,,,,,,M,ZJ-02-BLACK-BLUE-FLORAL-SHORTS-M,,deny,manual,235.00,TRUE,TRUE,
+zj-02-black-blue-floral-shorts,,,,,,,,L,ZJ-02-BLACK-BLUE-FLORAL-SHORTS-L,,deny,manual,235.00,TRUE,TRUE,
+zj-02-black-blue-floral-shorts,,,,,,,,XL,ZJ-02-BLACK-BLUE-FLORAL-SHORTS-XL,,deny,manual,235.00,TRUE,TRUE,
+zj-02-black-blue-floral-shorts,,,,,,,,XXL,ZJ-02-BLACK-BLUE-FLORAL-SHORTS-XXL,,deny,manual,235.00,TRUE,TRUE,
+zj-03-pink-diamond-canvas-vest,Pink Diamond Canvas Vest,"<p>Tan canvas vest with a pink diamond shoulder appliqué, paired with pink diamond patchwork denim shorts.</p><p>Part of the look: Pink Diamond Canvas Vest &amp; Shorts.</p>",Zenith Jeanz,Top,"men, denim, look-03, top",TRUE,Size,S,ZJ-03-PINK-DIAMOND-CANVAS-VEST-S,,deny,manual,305.00,TRUE,TRUE,active
+zj-03-pink-diamond-canvas-vest,,,,,,,,M,ZJ-03-PINK-DIAMOND-CANVAS-VEST-M,,deny,manual,305.00,TRUE,TRUE,
+zj-03-pink-diamond-canvas-vest,,,,,,,,L,ZJ-03-PINK-DIAMOND-CANVAS-VEST-L,,deny,manual,305.00,TRUE,TRUE,
+zj-03-pink-diamond-canvas-vest,,,,,,,,XL,ZJ-03-PINK-DIAMOND-CANVAS-VEST-XL,,deny,manual,305.00,TRUE,TRUE,
+zj-03-pink-diamond-canvas-vest,,,,,,,,XXL,ZJ-03-PINK-DIAMOND-CANVAS-VEST-XXL,,deny,manual,305.00,TRUE,TRUE,
+zj-03-pink-diamond-denim-shorts,Pink Diamond Denim Shorts,"<p>Tan canvas vest with a pink diamond shoulder appliqué, paired with pink diamond patchwork denim shorts.</p><p>Part of the look: Pink Diamond Canvas Vest &amp; Shorts.</p>",Zenith Jeanz,Bottoms,"men, denim, look-03, bottoms",TRUE,Size,S,ZJ-03-PINK-DIAMOND-DENIM-SHORTS-S,,deny,manual,238.00,TRUE,TRUE,active
+zj-03-pink-diamond-denim-shorts,,,,,,,,M,ZJ-03-PINK-DIAMOND-DENIM-SHORTS-M,,deny,manual,238.00,TRUE,TRUE,
+zj-03-pink-diamond-denim-shorts,,,,,,,,L,ZJ-03-PINK-DIAMOND-DENIM-SHORTS-L,,deny,manual,238.00,TRUE,TRUE,
+zj-03-pink-diamond-denim-shorts,,,,,,,,XL,ZJ-03-PINK-DIAMOND-DENIM-SHORTS-XL,,deny,manual,238.00,TRUE,TRUE,
+zj-03-pink-diamond-denim-shorts,,,,,,,,XXL,ZJ-03-PINK-DIAMOND-DENIM-SHORTS-XXL,,deny,manual,238.00,TRUE,TRUE,
+zj-04-gray-work-jacket,Gray Work Jacket,"<p>Gray work jacket layered under a pink diamond satin vest, worn with pink beaded floral gray shorts.</p><p>Part of the look: Gray Work Jacket &amp; Pink Diamond Vest.</p>",Zenith Jeanz,Top,"men, look-04, top",TRUE,Size,S,ZJ-04-GRAY-WORK-JACKET-S,,deny,manual,220.00,TRUE,TRUE,active
+zj-04-gray-work-jacket,,,,,,,,M,ZJ-04-GRAY-WORK-JACKET-M,,deny,manual,220.00,TRUE,TRUE,
+zj-04-gray-work-jacket,,,,,,,,L,ZJ-04-GRAY-WORK-JACKET-L,,deny,manual,220.00,TRUE,TRUE,
+zj-04-gray-work-jacket,,,,,,,,XL,ZJ-04-GRAY-WORK-JACKET-XL,,deny,manual,220.00,TRUE,TRUE,
+zj-04-gray-work-jacket,,,,,,,,XXL,ZJ-04-GRAY-WORK-JACKET-XXL,,deny,manual,220.00,TRUE,TRUE,
+zj-04-pink-diamond-satin-vest,Pink Diamond Satin Vest,"<p>Gray work jacket layered under a pink diamond satin vest, worn with pink beaded floral gray shorts.</p><p>Part of the look: Gray Work Jacket &amp; Pink Diamond Vest.</p>",Zenith Jeanz,Top,"men, look-04, top",TRUE,Size,S,ZJ-04-PINK-DIAMOND-SATIN-VEST-S,,deny,manual,300.00,TRUE,TRUE,active
+zj-04-pink-diamond-satin-vest,,,,,,,,M,ZJ-04-PINK-DIAMOND-SATIN-VEST-M,,deny,manual,300.00,TRUE,TRUE,
+zj-04-pink-diamond-satin-vest,,,,,,,,L,ZJ-04-PINK-DIAMOND-SATIN-VEST-L,,deny,manual,300.00,TRUE,TRUE,
+zj-04-pink-diamond-satin-vest,,,,,,,,XL,ZJ-04-PINK-DIAMOND-SATIN-VEST-XL,,deny,manual,300.00,TRUE,TRUE,
+zj-04-pink-diamond-satin-vest,,,,,,,,XXL,ZJ-04-PINK-DIAMOND-SATIN-VEST-XXL,,deny,manual,300.00,TRUE,TRUE,
+zj-04-pink-beaded-floral-gray-shorts,Pink Beaded Floral Gray Shorts,"<p>Gray work jacket layered under a pink diamond satin vest, worn with pink beaded floral gray shorts.</p><p>Part of the look: Gray Work Jacket &amp; Pink Diamond Vest.</p>",Zenith Jeanz,Bottoms,"men, look-04, bottoms",TRUE,Size,S,ZJ-04-PINK-BEADED-FLORAL-GRAY-SHORTS-S,,deny,manual,385.00,TRUE,TRUE,active
+zj-04-pink-beaded-floral-gray-shorts,,,,,,,,M,ZJ-04-PINK-BEADED-FLORAL-GRAY-SHORTS-M,,deny,manual,385.00,TRUE,TRUE,
+zj-04-pink-beaded-floral-gray-shorts,,,,,,,,L,ZJ-04-PINK-BEADED-FLORAL-GRAY-SHORTS-L,,deny,manual,385.00,TRUE,TRUE,
+zj-04-pink-beaded-floral-gray-shorts,,,,,,,,XL,ZJ-04-PINK-BEADED-FLORAL-GRAY-SHORTS-XL,,deny,manual,385.00,TRUE,TRUE,
+zj-04-pink-beaded-floral-gray-shorts,,,,,,,,XXL,ZJ-04-PINK-BEADED-FLORAL-GRAY-SHORTS-XXL,,deny,manual,385.00,TRUE,TRUE,
+zj-05-pink-organza-slip-dress,Pink Organza Slip Dress,"<p>Pink organza slip dress under a green beaded work jacket, over brown double-fly Armorn denim jeans.</p><p>Part of the look: Pink Organza Slip &amp; Beaded Work Jacket.</p>",Zenith Jeanz,Top,"women, denim, look-05, top",TRUE,Size,S,ZJ-05-PINK-ORGANZA-SLIP-DRESS-S,,deny,manual,480.00,TRUE,TRUE,active
+zj-05-pink-organza-slip-dress,,,,,,,,M,ZJ-05-PINK-ORGANZA-SLIP-DRESS-M,,deny,manual,480.00,TRUE,TRUE,
+zj-05-pink-organza-slip-dress,,,,,,,,L,ZJ-05-PINK-ORGANZA-SLIP-DRESS-L,,deny,manual,480.00,TRUE,TRUE,
+zj-05-pink-organza-slip-dress,,,,,,,,XL,ZJ-05-PINK-ORGANZA-SLIP-DRESS-XL,,deny,manual,480.00,TRUE,TRUE,
+zj-05-pink-organza-slip-dress,,,,,,,,XXL,ZJ-05-PINK-ORGANZA-SLIP-DRESS-XXL,,deny,manual,480.00,TRUE,TRUE,
+zj-05-green-beaded-work-jacket,Green Beaded Work Jacket,"<p>Pink organza slip dress under a green beaded work jacket, over brown double-fly Armorn denim jeans.</p><p>Part of the look: Pink Organza Slip &amp; Beaded Work Jacket.</p>",Zenith Jeanz,Top,"women, denim, look-05, top",TRUE,Size,S,ZJ-05-GREEN-BEADED-WORK-JACKET-S,,deny,manual,500.00,TRUE,TRUE,active
+zj-05-green-beaded-work-jacket,,,,,,,,M,ZJ-05-GREEN-BEADED-WORK-JACKET-M,,deny,manual,500.00,TRUE,TRUE,
+zj-05-green-beaded-work-jacket,,,,,,,,L,ZJ-05-GREEN-BEADED-WORK-JACKET-L,,deny,manual,500.00,TRUE,TRUE,
+zj-05-green-beaded-work-jacket,,,,,,,,XL,ZJ-05-GREEN-BEADED-WORK-JACKET-XL,,deny,manual,500.00,TRUE,TRUE,
+zj-05-green-beaded-work-jacket,,,,,,,,XXL,ZJ-05-GREEN-BEADED-WORK-JACKET-XXL,,deny,manual,500.00,TRUE,TRUE,
+zj-05-brown-double-fly-armorn-denim-jeans,Brown Double Fly Armorn Denim Jeans,"<p>Pink organza slip dress under a green beaded work jacket, over brown double-fly Armorn denim jeans.</p><p>Part of the look: Pink Organza Slip &amp; Beaded Work Jacket.</p>",Zenith Jeanz,Bottoms,"women, denim, look-05, bottoms",TRUE,Size,S,ZJ-05-BROWN-DOUBLE-FLY-ARMORN-DENIM-JEANS-S,,deny,manual,333.00,TRUE,TRUE,active
+zj-05-brown-double-fly-armorn-denim-jeans,,,,,,,,M,ZJ-05-BROWN-DOUBLE-FLY-ARMORN-DENIM-JEANS-M,,deny,manual,333.00,TRUE,TRUE,
+zj-05-brown-double-fly-armorn-denim-jeans,,,,,,,,L,ZJ-05-BROWN-DOUBLE-FLY-ARMORN-DENIM-JEANS-L,,deny,manual,333.00,TRUE,TRUE,
+zj-05-brown-double-fly-armorn-denim-jeans,,,,,,,,XL,ZJ-05-BROWN-DOUBLE-FLY-ARMORN-DENIM-JEANS-XL,,deny,manual,333.00,TRUE,TRUE,
+zj-05-brown-double-fly-armorn-denim-jeans,,,,,,,,XXL,ZJ-05-BROWN-DOUBLE-FLY-ARMORN-DENIM-JEANS-XXL,,deny,manual,333.00,TRUE,TRUE,
+zj-06-double-layered-denim-beaded-bomber-jacket,Double Layered Denim Beaded Bomber Jacket,"<p>Double-layered denim bomber with hand-beaded florals, worn open over green and pink floral denim jeans.</p><p>Part of the look: Beaded Denim Bomber &amp; Floral Jeans.</p>",Zenith Jeanz,Top,"men, denim, look-06, top",TRUE,Size,S,ZJ-06-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-S,,deny,manual,585.00,TRUE,TRUE,active
+zj-06-double-layered-denim-beaded-bomber-jacket,,,,,,,,M,ZJ-06-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-M,,deny,manual,585.00,TRUE,TRUE,
+zj-06-double-layered-denim-beaded-bomber-jacket,,,,,,,,L,ZJ-06-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-L,,deny,manual,585.00,TRUE,TRUE,
+zj-06-double-layered-denim-beaded-bomber-jacket,,,,,,,,XL,ZJ-06-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-XL,,deny,manual,585.00,TRUE,TRUE,
+zj-06-double-layered-denim-beaded-bomber-jacket,,,,,,,,XXL,ZJ-06-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-XXL,,deny,manual,585.00,TRUE,TRUE,
+zj-06-green-pink-floral-denim-jeans,Green and Pink Floral Denim Jeans,"<p>Double-layered denim bomber with hand-beaded florals, worn open over green and pink floral denim jeans.</p><p>Part of the look: Beaded Denim Bomber &amp; Floral Jeans.</p>",Zenith Jeanz,Bottoms,"men, denim, look-06, bottoms",TRUE,Size,S,ZJ-06-GREEN-PINK-FLORAL-DENIM-JEANS-S,,deny,manual,385.00,TRUE,TRUE,active
+zj-06-green-pink-floral-denim-jeans,,,,,,,,M,ZJ-06-GREEN-PINK-FLORAL-DENIM-JEANS-M,,deny,manual,385.00,TRUE,TRUE,
+zj-06-green-pink-floral-denim-jeans,,,,,,,,L,ZJ-06-GREEN-PINK-FLORAL-DENIM-JEANS-L,,deny,manual,385.00,TRUE,TRUE,
+zj-06-green-pink-floral-denim-jeans,,,,,,,,XL,ZJ-06-GREEN-PINK-FLORAL-DENIM-JEANS-XL,,deny,manual,385.00,TRUE,TRUE,
+zj-06-green-pink-floral-denim-jeans,,,,,,,,XXL,ZJ-06-GREEN-PINK-FLORAL-DENIM-JEANS-XXL,,deny,manual,385.00,TRUE,TRUE,
+zj-07-beaded-orange-canvas-work-jacket,Beaded Orange Canvas Work Jacket,"<p>Orange canvas work jacket with tonal beadwork, over green beaded denim jeans encrusted from hip to hem.</p><p>Part of the look: Beaded Orange Work Jacket &amp; Green Jeans.</p>",Zenith Jeanz,Top,"men, denim, look-07, top",TRUE,Size,S,ZJ-07-BEADED-ORANGE-CANVAS-WORK-JACKET-S,,deny,manual,385.00,TRUE,TRUE,active
+zj-07-beaded-orange-canvas-work-jacket,,,,,,,,M,ZJ-07-BEADED-ORANGE-CANVAS-WORK-JACKET-M,,deny,manual,385.00,TRUE,TRUE,
+zj-07-beaded-orange-canvas-work-jacket,,,,,,,,L,ZJ-07-BEADED-ORANGE-CANVAS-WORK-JACKET-L,,deny,manual,385.00,TRUE,TRUE,
+zj-07-beaded-orange-canvas-work-jacket,,,,,,,,XL,ZJ-07-BEADED-ORANGE-CANVAS-WORK-JACKET-XL,,deny,manual,385.00,TRUE,TRUE,
+zj-07-beaded-orange-canvas-work-jacket,,,,,,,,XXL,ZJ-07-BEADED-ORANGE-CANVAS-WORK-JACKET-XXL,,deny,manual,385.00,TRUE,TRUE,
+zj-07-green-beaded-denim-jeans,Green Beaded Denim Jeans,"<p>Orange canvas work jacket with tonal beadwork, over green beaded denim jeans encrusted from hip to hem.</p><p>Part of the look: Beaded Orange Work Jacket &amp; Green Jeans.</p>",Zenith Jeanz,Bottoms,"men, denim, look-07, bottoms",TRUE,Size,S,ZJ-07-GREEN-BEADED-DENIM-JEANS-S,,deny,manual,485.00,TRUE,TRUE,active
+zj-07-green-beaded-denim-jeans,,,,,,,,M,ZJ-07-GREEN-BEADED-DENIM-JEANS-M,,deny,manual,485.00,TRUE,TRUE,
+zj-07-green-beaded-denim-jeans,,,,,,,,L,ZJ-07-GREEN-BEADED-DENIM-JEANS-L,,deny,manual,485.00,TRUE,TRUE,
+zj-07-green-beaded-denim-jeans,,,,,,,,XL,ZJ-07-GREEN-BEADED-DENIM-JEANS-XL,,deny,manual,485.00,TRUE,TRUE,
+zj-07-green-beaded-denim-jeans,,,,,,,,XXL,ZJ-07-GREEN-BEADED-DENIM-JEANS-XXL,,deny,manual,485.00,TRUE,TRUE,
+zj-08-cropped-black-work-jacket,Cropped Black Work Jacket,<p>Cropped black work jacket with mocha denim jeans overlaid in black beading.</p><p>Part of the look: Cropped Black Jacket &amp; Mocha Jeans.</p>,Zenith Jeanz,Top,"women, denim, look-08, top",TRUE,Size,S,ZJ-08-CROPPED-BLACK-WORK-JACKET-S,,deny,manual,255.00,TRUE,TRUE,active
+zj-08-cropped-black-work-jacket,,,,,,,,M,ZJ-08-CROPPED-BLACK-WORK-JACKET-M,,deny,manual,255.00,TRUE,TRUE,
+zj-08-cropped-black-work-jacket,,,,,,,,L,ZJ-08-CROPPED-BLACK-WORK-JACKET-L,,deny,manual,255.00,TRUE,TRUE,
+zj-08-cropped-black-work-jacket,,,,,,,,XL,ZJ-08-CROPPED-BLACK-WORK-JACKET-XL,,deny,manual,255.00,TRUE,TRUE,
+zj-08-cropped-black-work-jacket,,,,,,,,XXL,ZJ-08-CROPPED-BLACK-WORK-JACKET-XXL,,deny,manual,255.00,TRUE,TRUE,
+zj-08-mocha-denim-jeans-black-beads,Mocha Denim Jeans with Black Beads,<p>Cropped black work jacket with mocha denim jeans overlaid in black beading.</p><p>Part of the look: Cropped Black Jacket &amp; Mocha Jeans.</p>,Zenith Jeanz,Bottoms,"women, denim, look-08, bottoms",TRUE,Size,S,ZJ-08-MOCHA-DENIM-JEANS-BLACK-BEADS-S,,deny,manual,500.00,TRUE,TRUE,active
+zj-08-mocha-denim-jeans-black-beads,,,,,,,,M,ZJ-08-MOCHA-DENIM-JEANS-BLACK-BEADS-M,,deny,manual,500.00,TRUE,TRUE,
+zj-08-mocha-denim-jeans-black-beads,,,,,,,,L,ZJ-08-MOCHA-DENIM-JEANS-BLACK-BEADS-L,,deny,manual,500.00,TRUE,TRUE,
+zj-08-mocha-denim-jeans-black-beads,,,,,,,,XL,ZJ-08-MOCHA-DENIM-JEANS-BLACK-BEADS-XL,,deny,manual,500.00,TRUE,TRUE,
+zj-08-mocha-denim-jeans-black-beads,,,,,,,,XXL,ZJ-08-MOCHA-DENIM-JEANS-BLACK-BEADS-XXL,,deny,manual,500.00,TRUE,TRUE,
+zj-09-double-layered-denim-beaded-bomber-jacket,Double Layered Denim Beaded Bomber Jacket,<p>Double-layered denim beaded bomber over black denim set with pink diamond embroidery.</p><p>Part of the look: Beaded Bomber &amp; Pink Diamond Denim.</p>,Zenith Jeanz,Top,"women, denim, look-09, top",TRUE,Size,S,ZJ-09-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-S,,deny,manual,488.00,TRUE,TRUE,active
+zj-09-double-layered-denim-beaded-bomber-jacket,,,,,,,,M,ZJ-09-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-M,,deny,manual,488.00,TRUE,TRUE,
+zj-09-double-layered-denim-beaded-bomber-jacket,,,,,,,,L,ZJ-09-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-L,,deny,manual,488.00,TRUE,TRUE,
+zj-09-double-layered-denim-beaded-bomber-jacket,,,,,,,,XL,ZJ-09-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-XL,,deny,manual,488.00,TRUE,TRUE,
+zj-09-double-layered-denim-beaded-bomber-jacket,,,,,,,,XXL,ZJ-09-DOUBLE-LAYERED-DENIM-BEADED-BOMBER-JACKET-XXL,,deny,manual,488.00,TRUE,TRUE,
+zj-09-black-denim-pink-diamonds,Black Denim with Pink Diamonds,<p>Double-layered denim beaded bomber over black denim set with pink diamond embroidery.</p><p>Part of the look: Beaded Bomber &amp; Pink Diamond Denim.</p>,Zenith Jeanz,Bottoms,"women, denim, look-09, bottoms",TRUE,Size,S,ZJ-09-BLACK-DENIM-PINK-DIAMONDS-S,,deny,manual,598.00,TRUE,TRUE,active
+zj-09-black-denim-pink-diamonds,,,,,,,,M,ZJ-09-BLACK-DENIM-PINK-DIAMONDS-M,,deny,manual,598.00,TRUE,TRUE,
+zj-09-black-denim-pink-diamonds,,,,,,,,L,ZJ-09-BLACK-DENIM-PINK-DIAMONDS-L,,deny,manual,598.00,TRUE,TRUE,
+zj-09-black-denim-pink-diamonds,,,,,,,,XL,ZJ-09-BLACK-DENIM-PINK-DIAMONDS-XL,,deny,manual,598.00,TRUE,TRUE,
+zj-09-black-denim-pink-diamonds,,,,,,,,XXL,ZJ-09-BLACK-DENIM-PINK-DIAMONDS-XXL,,deny,manual,598.00,TRUE,TRUE,
+zj-10-sacloth-hoodie,Sacloth Hoodie,"<p>Sacloth hoodie under a tan canvas work jacket, with blue-wash denim under an ocean bead overlay.</p><p>Part of the look: Sacloth Hoodie &amp; Ocean Bead Denim.</p>",Zenith Jeanz,Top,"men, denim, look-10, top",TRUE,Size,S,ZJ-10-SACLOTH-HOODIE-S,,deny,manual,250.00,TRUE,TRUE,active
+zj-10-sacloth-hoodie,,,,,,,,M,ZJ-10-SACLOTH-HOODIE-M,,deny,manual,250.00,TRUE,TRUE,
+zj-10-sacloth-hoodie,,,,,,,,L,ZJ-10-SACLOTH-HOODIE-L,,deny,manual,250.00,TRUE,TRUE,
+zj-10-sacloth-hoodie,,,,,,,,XL,ZJ-10-SACLOTH-HOODIE-XL,,deny,manual,250.00,TRUE,TRUE,
+zj-10-sacloth-hoodie,,,,,,,,XXL,ZJ-10-SACLOTH-HOODIE-XXL,,deny,manual,250.00,TRUE,TRUE,
+zj-10-tan-canvas-work-jacket,Tan Canvas Work Jacket,"<p>Sacloth hoodie under a tan canvas work jacket, with blue-wash denim under an ocean bead overlay.</p><p>Part of the look: Sacloth Hoodie &amp; Ocean Bead Denim.</p>",Zenith Jeanz,Top,"men, denim, look-10, top",TRUE,Size,S,ZJ-10-TAN-CANVAS-WORK-JACKET-S,,deny,manual,380.00,TRUE,TRUE,active
+zj-10-tan-canvas-work-jacket,,,,,,,,M,ZJ-10-TAN-CANVAS-WORK-JACKET-M,,deny,manual,380.00,TRUE,TRUE,
+zj-10-tan-canvas-work-jacket,,,,,,,,L,ZJ-10-TAN-CANVAS-WORK-JACKET-L,,deny,manual,380.00,TRUE,TRUE,
+zj-10-tan-canvas-work-jacket,,,,,,,,XL,ZJ-10-TAN-CANVAS-WORK-JACKET-XL,,deny,manual,380.00,TRUE,TRUE,
+zj-10-tan-canvas-work-jacket,,,,,,,,XXL,ZJ-10-TAN-CANVAS-WORK-JACKET-XXL,,deny,manual,380.00,TRUE,TRUE,
+zj-10-blue-wash-ocean-bead-overlay,Blue Wash with Ocean Bead Overlay,"<p>Sacloth hoodie under a tan canvas work jacket, with blue-wash denim under an ocean bead overlay.</p><p>Part of the look: Sacloth Hoodie &amp; Ocean Bead Denim.</p>",Zenith Jeanz,Bottoms,"men, denim, look-10, bottoms",TRUE,Size,S,ZJ-10-BLUE-WASH-OCEAN-BEAD-OVERLAY-S,,deny,manual,685.00,TRUE,TRUE,active
+zj-10-blue-wash-ocean-bead-overlay,,,,,,,,M,ZJ-10-BLUE-WASH-OCEAN-BEAD-OVERLAY-M,,deny,manual,685.00,TRUE,TRUE,
+zj-10-blue-wash-ocean-bead-overlay,,,,,,,,L,ZJ-10-BLUE-WASH-OCEAN-BEAD-OVERLAY-L,,deny,manual,685.00,TRUE,TRUE,
+zj-10-blue-wash-ocean-bead-overlay,,,,,,,,XL,ZJ-10-BLUE-WASH-OCEAN-BEAD-OVERLAY-XL,,deny,manual,685.00,TRUE,TRUE,
+zj-10-blue-wash-ocean-bead-overlay,,,,,,,,XXL,ZJ-10-BLUE-WASH-OCEAN-BEAD-OVERLAY-XXL,,deny,manual,685.00,TRUE,TRUE,
