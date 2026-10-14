@@ -92,7 +92,7 @@
     overflow: hidden;
     transition: opacity 0.45s ease;
   }
-  .model video {
+  .model video, .model img.anim {
     position: absolute; top: 0; left: 50%;
     height: 109.29%; width: auto;
     transform: translate(-50%, -4%); transform-origin: top center;
@@ -314,6 +314,7 @@
   function useFiller(m) {
     if (m.filler) return;
     if (m.video) { m.video.remove(); m.video = null; }
+    if (m.img) { m.img.remove(); m.img = null; }
     var d = document.createElement("div");
     d.className = "filler";
     m.inner.appendChild(d);
@@ -330,7 +331,8 @@
     var inner = document.createElement("div");
     inner.className = "inner";
     el.appendChild(inner);
-    var m = { el: el, inner: inner, video: null, filler: null, look: look, index: i, slot: i, on: true };
+    var m = { el: el, inner: inner, video: null, img: null, filler: null, look: look, index: i, slot: i, on: true,
+              anim: list[i] && list[i].anim, poster: list[i] && list[i].poster, lastT: -1, stuck: 0 };
     if (src) {
       var v = document.createElement("video");
       v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
@@ -347,7 +349,7 @@
         });
         v.addEventListener("seeked", function () { tryPlay(m); });
         v.addEventListener("canplay", function () { tryPlay(m); });
-        v.addEventListener("error", function () { useFiller(m); });
+        v.addEventListener("error", function () { useImage(m); });
       })(m, v, i);
       inner.appendChild(v);
       m.video = v;
@@ -362,31 +364,70 @@
   // only the hovered one while hovering, only the selected one in the detail view
   var hovered = null;
   function shouldPlay(m) {
-    if (!m.video || !m.on) return false;
+    if (!m.on) return false;
     if (selected) return m === selected;
     if (hovered) return m === hovered;
     return !switching;
   }
-  function tryPlay(m) {
-    if (!shouldPlay(m) || !m.video.paused) return;
-    var r = m.video.play();
-    if (r && r.catch) r.catch(function () {});
-  }
-  function playAll() { models.forEach(tryPlay); }
 
-  // Safari (Low Power Mode, data saver) can refuse muted autoplay until the
-  // visitor interacts, so start everything on the first touch, scroll or key
+  // Animated-image fallback: Safari refuses video autoplay in Low Power Mode
+  // and similar states, but animated images always play. A model whose video
+  // can't play swaps to its animated WebP, with a still poster while paused.
+  function useImage(m) {
+    if (m.img || m.filler) return;
+    if (!m.anim) { useFiller(m); return; }
+    if (m.video) { m.video.pause(); m.video.remove(); m.video = null; }
+    var im = document.createElement("img");
+    im.className = "anim"; im.alt = ""; im.decoding = "async";
+    im.addEventListener("error", function () { useFiller(m); });
+    m.inner.appendChild(im);
+    m.img = im;
+    setMotion(m, shouldPlay(m));
+  }
+  function setMotion(m, on) {
+    if (m.video) {
+      if (on && m.video.paused) {
+        var r = m.video.play();
+        if (r && r.catch) r.catch(function (e) {
+          if (e && e.name === "NotAllowedError") useImage(m);   // autoplay blocked
+        });
+      } else if (!on && !m.video.paused) m.video.pause();
+    } else if (m.img) {
+      var want = on ? m.anim : (m.poster || m.anim);
+      if (m.img.getAttribute("src") !== want) m.img.setAttribute("src", want);
+    }
+  }
+  function tryPlay(m) { if (shouldPlay(m)) setMotion(m, true); }
+  function playAll() { models.forEach(function (m) { setMotion(m, shouldPlay(m)); }); }
+
   ["touchstart", "pointerdown", "click", "keydown", "scroll", "wheel"].forEach(function (ev) {
     window.addEventListener(ev, playAll, { passive: true, capture: true });
   });
   document.addEventListener("visibilitychange", function () { if (!document.hidden) playAll(); });
-  // watchdog: restart any clip the browser paused or stalled behind our back
-  setInterval(function () { if (!document.hidden) playAll(); }, 1000);
+  // watchdog: keep every clip in the state it should be in, and if a video
+  // that should be playing hasn't advanced for 2s, switch it to its animation
+  var started = Date.now();
+  setInterval(function () {
+    if (document.hidden) return;
+    playAll();
+    if (Date.now() - started < 2500) return;
+    models.forEach(function (m) {
+      if (!m.video || !shouldPlay(m)) { m.stuck = 0; return; }
+      var t = m.video.currentTime;
+      // blocked: still paused after we asked it to play; stalled: has data but the clock isn't moving.
+      // A clip that's merely still downloading (readyState < 3) isn't counted as stuck.
+      var blocked = m.video.paused, stalled = m.video.readyState >= 3 && t === m.lastT;
+      m.stuck = (blocked || stalled) ? m.stuck + 1 : 0;
+      m.lastT = t;
+      if (m.stuck >= 2) useImage(m);
+    });
+  }, 1000);
 
   /* ---------- runway loop ---------- */
   var PERIOD = 8, SLOT_MS = 3600, SPACING = PERIOD / N;
   var prog = 0, lastTime = null, paused = false, selected = null;
-  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // the walking runway is the site itself, so it always runs (even with Reduce Motion on)
+  var reduce = false;
 
   function slotQ(m) { return (m.slot * SPACING + prog) % PERIOD; }
   function placeAll() {
@@ -418,9 +459,9 @@
         paused = true;
         hovered = m;
         models.forEach(function (o) {
-          if (o === m) { o.el.classList.remove("dim"); if (o.video) o.video.play().catch(function () {}); }
-          else { o.el.classList.add("dim"); if (o.video) o.video.pause(); }
+          o.el.classList.toggle("dim", o !== m);
         });
+        playAll();
       });
       m.el.addEventListener("mouseleave", function () {
         if (selected || switching) return;
@@ -470,7 +511,7 @@
         m.on = hits.indexOf(m) !== -1;
         m.el.classList.toggle("off", !m.on);
         if (m.on) m.slot = k++;
-        else if (m.video) m.video.pause();
+        else setMotion(m, false);
       });
       placeAll();
       requestAnimationFrame(function () {
@@ -770,9 +811,9 @@
     fillPanels(m.look);
     models.forEach(function (o) {
       o.el.classList.remove("dim");
-      if (o !== m) { o.el.classList.add("gone"); if (o.video) o.video.pause(); }
+      if (o !== m) o.el.classList.add("gone");
     });
-    if (m.video) m.video.play().catch(function () {});
+    playAll();
     m.el.style.zIndex = "50000";
     m.el.classList.add("animating");
     void m.el.offsetWidth;

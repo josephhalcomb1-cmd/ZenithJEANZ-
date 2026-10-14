@@ -92,7 +92,7 @@
     overflow: hidden;
     transition: opacity 0.45s ease;
   }
-  .model video {
+  .model video, .model img.anim {
     position: absolute; top: 0; left: 50%;
     height: 109.29%; width: auto;
     transform: translate(-50%, -4%); transform-origin: top center;
@@ -254,7 +254,7 @@
 
 <script>
 (function () {
-  var DATA = {"models": [{"src": "media/01_canvas-vest.mp4"}, {"src": "media/02_blue-flannel-hoodie.mp4"}, {"src": "media/03_pink-diamond-vest.mp4"}, {"src": "media/04_gray-work-jacket.mp4"}, {"src": "media/05_pink-organza-slip.mp4"}, {"src": "media/06_denim-bomber.mp4"}, {"src": "media/07_orange-canvas-jacket.mp4"}, {"src": "media/08_cropped-black-jacket.mp4"}, {"src": "media/09_denim-bomber-black-pink.mp4"}, {"src": "media/10_sacloth-hoodie.mp4"}], "looks": [{"name": "Canvas Vest & Diamond Denim Shorts", "description": "Cropped brown canvas vest over light-wash denim shorts cut with diamond-panel inserts.", "tags": ["men", "denim"], "pieces": [{"name": "Canvas Vest", "type": "Top", "price": 85, "handle": "zj-01-canvas-vest"}, {"name": "Diamond Denim Shorts", "type": "Bottoms", "price": 185, "handle": "zj-01-diamond-denim-shorts"}]}, {"name": "Blue Flannel Hoodie & Floral Shorts", "description": "Oversized blue plaid flannel hoodie with black and blue floral shorts finished in a raw, frayed hem.", "tags": ["men"], "pieces": [{"name": "Blue Flannel Hoodie", "type": "Top", "price": 210, "handle": "zj-02-blue-flannel-hoodie"}, {"name": "Black & Blue Floral Shorts", "type": "Bottoms", "price": 235, "handle": "zj-02-black-blue-floral-shorts"}]}, {"name": "Pink Diamond Canvas Vest & Shorts", "description": "Tan canvas vest with a pink diamond shoulder appliqué, paired with pink diamond patchwork denim shorts.", "tags": ["men", "denim"], "pieces": [{"name": "Pink Diamond Canvas Vest", "type": "Top", "price": 305, "handle": "zj-03-pink-diamond-canvas-vest"}, {"name": "Pink Diamond Denim Shorts", "type": "Bottoms", "price": 238, "handle": "zj-03-pink-diamond-denim-shorts"}]}, {"name": "Gray Work Jacket & Pink Diamond Vest", "description": "Gray work jacket layered under a pink diamond satin vest, worn with pink beaded floral gray shorts.", "tags": ["men"], "pieces": [{"name": "Gray Work Jacket", "type": "Top", "price": 220, "handle": "zj-04-gray-work-jacket"}, {"name": "Pink Diamond Satin Vest", "type": "Top", "price": 300, "handle": "zj-04-pink-diamond-satin-vest"}, {"name": "Pink Beaded Floral Gray Shorts", "type": "Bottoms", "price": 385, "handle": "zj-04-pink-beaded-floral-gray-shorts"}]}, {"name": "Pink Organza Slip & Beaded Work Jacket", "description": "Pink organza slip dress under a green beaded work jacket, over brown double-fly Armorn denim jeans.", "tags": ["women", "denim"], "pieces": [{"name": "Pink Organza Slip Dress", "type": "Top", "price": 480, "handle": "zj-05-pink-organza-slip-dress"}, {"name": "Green Beaded Work Jacket", "type": "Top", "price": 500, "handle": "zj-05-green-beaded-work-jacket"}, {"name": "Brown Double Fly Armorn Denim Jeans", "type": "Bottoms", "price": 333, "handle": "zj-05-brown-double-fly-armorn-denim-jeans"}]}, {"name": "Beaded Denim Bomber & Floral Jeans", "description": "Double-layered denim bomber with hand-beaded florals, worn open over green and pink floral denim jeans.", "tags": ["men", "denim"], "pieces": [{"name": "Double Layered Denim Beaded Bomber Jacket", "type": "Top", "price": 585, "handle": "zj-06-double-layered-denim-beaded-bomber-jacket"}, {"name": "Green and Pink Floral Denim Jeans", "type": "Bottoms", "price": 385, "handle": "zj-06-green-pink-floral-denim-jeans"}]}, {"name": "Beaded Orange Work Jacket & Green Jeans", "description": "Orange canvas work jacket with tonal beadwork, over green beaded denim jeans encrusted from hip to hem.", "tags": ["men", "denim"], "pieces": [{"name": "Beaded Orange Canvas Work Jacket", "type": "Top", "price": 385, "handle": "zj-07-beaded-orange-canvas-work-jacket"}, {"name": "Green Beaded Denim Jeans", "type": "Bottoms", "price": 485, "handle": "zj-07-green-beaded-denim-jeans"}]}, {"name": "Cropped Black Jacket & Mocha Jeans", "description": "Cropped black work jacket with mocha denim jeans overlaid in black beading.", "tags": ["women", "denim"], "pieces": [{"name": "Cropped Black Work Jacket", "type": "Top", "price": 255, "handle": "zj-08-cropped-black-work-jacket"}, {"name": "Mocha Denim Jeans with Black Beads", "type": "Bottoms", "price": 500, "handle": "zj-08-mocha-denim-jeans-black-beads"}]}, {"name": "Beaded Bomber & Pink Diamond Denim", "description": "Double-layered denim beaded bomber over black denim set with pink diamond embroidery.", "tags": ["women", "denim"], "pieces": [{"name": "Double Layered Denim Beaded Bomber Jacket", "type": "Top", "price": 488, "handle": "zj-09-double-layered-denim-beaded-bomber-jacket"}, {"name": "Black Denim with Pink Diamonds", "type": "Bottoms", "price": 598, "handle": "zj-09-black-denim-pink-diamonds"}]}, {"name": "Sacloth Hoodie & Ocean Bead Denim", "description": "Sacloth hoodie under a tan canvas work jacket, with blue-wash denim under an ocean bead overlay.", "tags": ["men", "denim"], "pieces": [{"name": "Sacloth Hoodie", "type": "Top", "price": 250, "handle": "zj-10-sacloth-hoodie"}, {"name": "Tan Canvas Work Jacket", "type": "Top", "price": 380, "handle": "zj-10-tan-canvas-work-jacket"}, {"name": "Blue Wash with Ocean Bead Overlay", "type": "Bottoms", "price": 685, "handle": "zj-10-blue-wash-ocean-bead-overlay"}]}], "currency": "$", "sizes": ["S", "M", "L", "XL", "XXL"], "defaultSize": "M", "store": {"shopDomain": "1ygmd8-ay.myshopify.com", "storefrontToken": "88ac8ef0527f67f5235f4436d89b3924", "apiVersion": "2025-07", "showsUrl": ""}};
+  var DATA = {"models": [{"src": "media/01_canvas-vest.mp4", "anim": "media/anim/01_canvas-vest.webp", "poster": "media/poster/01_canvas-vest.jpg"}, {"src": "media/02_blue-flannel-hoodie.mp4", "anim": "media/anim/02_blue-flannel-hoodie.webp", "poster": "media/poster/02_blue-flannel-hoodie.jpg"}, {"src": "media/03_pink-diamond-vest.mp4", "anim": "media/anim/03_pink-diamond-vest.webp", "poster": "media/poster/03_pink-diamond-vest.jpg"}, {"src": "media/04_gray-work-jacket.mp4", "anim": "media/anim/04_gray-work-jacket.webp", "poster": "media/poster/04_gray-work-jacket.jpg"}, {"src": "media/05_pink-organza-slip.mp4", "anim": "media/anim/05_pink-organza-slip.webp", "poster": "media/poster/05_pink-organza-slip.jpg"}, {"src": "media/06_denim-bomber.mp4", "anim": "media/anim/06_denim-bomber.webp", "poster": "media/poster/06_denim-bomber.jpg"}, {"src": "media/07_orange-canvas-jacket.mp4", "anim": "media/anim/07_orange-canvas-jacket.webp", "poster": "media/poster/07_orange-canvas-jacket.jpg"}, {"src": "media/08_cropped-black-jacket.mp4", "anim": "media/anim/08_cropped-black-jacket.webp", "poster": "media/poster/08_cropped-black-jacket.jpg"}, {"src": "media/09_denim-bomber-black-pink.mp4", "anim": "media/anim/09_denim-bomber-black-pink.webp", "poster": "media/poster/09_denim-bomber-black-pink.jpg"}, {"src": "media/10_sacloth-hoodie.mp4", "anim": "media/anim/10_sacloth-hoodie.webp", "poster": "media/poster/10_sacloth-hoodie.jpg"}], "looks": [{"name": "Canvas Vest & Diamond Denim Shorts", "description": "Cropped brown canvas vest over light-wash denim shorts cut with diamond-panel inserts.", "tags": ["men", "denim"], "pieces": [{"name": "Canvas Vest", "type": "Top", "price": 85, "handle": "zj-01-canvas-vest"}, {"name": "Diamond Denim Shorts", "type": "Bottoms", "price": 185, "handle": "zj-01-diamond-denim-shorts"}]}, {"name": "Blue Flannel Hoodie & Floral Shorts", "description": "Oversized blue plaid flannel hoodie with black and blue floral shorts finished in a raw, frayed hem.", "tags": ["men"], "pieces": [{"name": "Blue Flannel Hoodie", "type": "Top", "price": 210, "handle": "zj-02-blue-flannel-hoodie"}, {"name": "Black & Blue Floral Shorts", "type": "Bottoms", "price": 235, "handle": "zj-02-black-blue-floral-shorts"}]}, {"name": "Pink Diamond Canvas Vest & Shorts", "description": "Tan canvas vest with a pink diamond shoulder appliqué, paired with pink diamond patchwork denim shorts.", "tags": ["men", "denim"], "pieces": [{"name": "Pink Diamond Canvas Vest", "type": "Top", "price": 305, "handle": "zj-03-pink-diamond-canvas-vest"}, {"name": "Pink Diamond Denim Shorts", "type": "Bottoms", "price": 238, "handle": "zj-03-pink-diamond-denim-shorts"}]}, {"name": "Gray Work Jacket & Pink Diamond Vest", "description": "Gray work jacket layered under a pink diamond satin vest, worn with pink beaded floral gray shorts.", "tags": ["men"], "pieces": [{"name": "Gray Work Jacket", "type": "Top", "price": 220, "handle": "zj-04-gray-work-jacket"}, {"name": "Pink Diamond Satin Vest", "type": "Top", "price": 300, "handle": "zj-04-pink-diamond-satin-vest"}, {"name": "Pink Beaded Floral Gray Shorts", "type": "Bottoms", "price": 385, "handle": "zj-04-pink-beaded-floral-gray-shorts"}]}, {"name": "Pink Organza Slip & Beaded Work Jacket", "description": "Pink organza slip dress under a green beaded work jacket, over brown double-fly Armorn denim jeans.", "tags": ["women", "denim"], "pieces": [{"name": "Pink Organza Slip Dress", "type": "Top", "price": 480, "handle": "zj-05-pink-organza-slip-dress"}, {"name": "Green Beaded Work Jacket", "type": "Top", "price": 500, "handle": "zj-05-green-beaded-work-jacket"}, {"name": "Brown Double Fly Armorn Denim Jeans", "type": "Bottoms", "price": 333, "handle": "zj-05-brown-double-fly-armorn-denim-jeans"}]}, {"name": "Beaded Denim Bomber & Floral Jeans", "description": "Double-layered denim bomber with hand-beaded florals, worn open over green and pink floral denim jeans.", "tags": ["men", "denim"], "pieces": [{"name": "Double Layered Denim Beaded Bomber Jacket", "type": "Top", "price": 585, "handle": "zj-06-double-layered-denim-beaded-bomber-jacket"}, {"name": "Green and Pink Floral Denim Jeans", "type": "Bottoms", "price": 385, "handle": "zj-06-green-pink-floral-denim-jeans"}]}, {"name": "Beaded Orange Work Jacket & Green Jeans", "description": "Orange canvas work jacket with tonal beadwork, over green beaded denim jeans encrusted from hip to hem.", "tags": ["men", "denim"], "pieces": [{"name": "Beaded Orange Canvas Work Jacket", "type": "Top", "price": 385, "handle": "zj-07-beaded-orange-canvas-work-jacket"}, {"name": "Green Beaded Denim Jeans", "type": "Bottoms", "price": 485, "handle": "zj-07-green-beaded-denim-jeans"}]}, {"name": "Cropped Black Jacket & Mocha Jeans", "description": "Cropped black work jacket with mocha denim jeans overlaid in black beading.", "tags": ["women", "denim"], "pieces": [{"name": "Cropped Black Work Jacket", "type": "Top", "price": 255, "handle": "zj-08-cropped-black-work-jacket"}, {"name": "Mocha Denim Jeans with Black Beads", "type": "Bottoms", "price": 500, "handle": "zj-08-mocha-denim-jeans-black-beads"}]}, {"name": "Beaded Bomber & Pink Diamond Denim", "description": "Double-layered denim beaded bomber over black denim set with pink diamond embroidery.", "tags": ["women", "denim"], "pieces": [{"name": "Double Layered Denim Beaded Bomber Jacket", "type": "Top", "price": 488, "handle": "zj-09-double-layered-denim-beaded-bomber-jacket"}, {"name": "Black Denim with Pink Diamonds", "type": "Bottoms", "price": 598, "handle": "zj-09-black-denim-pink-diamonds"}]}, {"name": "Sacloth Hoodie & Ocean Bead Denim", "description": "Sacloth hoodie under a tan canvas work jacket, with blue-wash denim under an ocean bead overlay.", "tags": ["men", "denim"], "pieces": [{"name": "Sacloth Hoodie", "type": "Top", "price": 250, "handle": "zj-10-sacloth-hoodie"}, {"name": "Tan Canvas Work Jacket", "type": "Top", "price": 380, "handle": "zj-10-tan-canvas-work-jacket"}, {"name": "Blue Wash with Ocean Bead Overlay", "type": "Bottoms", "price": 685, "handle": "zj-10-blue-wash-ocean-bead-overlay"}]}], "currency": "$", "sizes": ["S", "M", "L", "XL", "XXL"], "defaultSize": "M", "store": {"shopDomain": "1ygmd8-ay.myshopify.com", "storefrontToken": "88ac8ef0527f67f5235f4436d89b3924", "apiVersion": "2025-07", "showsUrl": ""}};
   var STORE = DATA.store;
   var CONNECTED = !!(STORE.shopDomain && STORE.storefrontToken);
 
@@ -318,6 +318,7 @@
   function useFiller(m) {
     if (m.filler) return;
     if (m.video) { m.video.remove(); m.video = null; }
+    if (m.img) { m.img.remove(); m.img = null; }
     var d = document.createElement("div");
     d.className = "filler";
     m.inner.appendChild(d);
@@ -334,7 +335,8 @@
     var inner = document.createElement("div");
     inner.className = "inner";
     el.appendChild(inner);
-    var m = { el: el, inner: inner, video: null, filler: null, look: look, index: i, slot: i, on: true };
+    var m = { el: el, inner: inner, video: null, img: null, filler: null, look: look, index: i, slot: i, on: true,
+              anim: list[i] && list[i].anim, poster: list[i] && list[i].poster, lastT: -1, stuck: 0 };
     if (src) {
       var v = document.createElement("video");
       v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
@@ -351,7 +353,7 @@
         });
         v.addEventListener("seeked", function () { tryPlay(m); });
         v.addEventListener("canplay", function () { tryPlay(m); });
-        v.addEventListener("error", function () { useFiller(m); });
+        v.addEventListener("error", function () { useImage(m); });
       })(m, v, i);
       inner.appendChild(v);
       m.video = v;
@@ -366,31 +368,70 @@
   // only the hovered one while hovering, only the selected one in the detail view
   var hovered = null;
   function shouldPlay(m) {
-    if (!m.video || !m.on) return false;
+    if (!m.on) return false;
     if (selected) return m === selected;
     if (hovered) return m === hovered;
     return !switching;
   }
-  function tryPlay(m) {
-    if (!shouldPlay(m) || !m.video.paused) return;
-    var r = m.video.play();
-    if (r && r.catch) r.catch(function () {});
-  }
-  function playAll() { models.forEach(tryPlay); }
 
-  // Safari (Low Power Mode, data saver) can refuse muted autoplay until the
-  // visitor interacts, so start everything on the first touch, scroll or key
+  // Animated-image fallback: Safari refuses video autoplay in Low Power Mode
+  // and similar states, but animated images always play. A model whose video
+  // can't play swaps to its animated WebP, with a still poster while paused.
+  function useImage(m) {
+    if (m.img || m.filler) return;
+    if (!m.anim) { useFiller(m); return; }
+    if (m.video) { m.video.pause(); m.video.remove(); m.video = null; }
+    var im = document.createElement("img");
+    im.className = "anim"; im.alt = ""; im.decoding = "async";
+    im.addEventListener("error", function () { useFiller(m); });
+    m.inner.appendChild(im);
+    m.img = im;
+    setMotion(m, shouldPlay(m));
+  }
+  function setMotion(m, on) {
+    if (m.video) {
+      if (on && m.video.paused) {
+        var r = m.video.play();
+        if (r && r.catch) r.catch(function (e) {
+          if (e && e.name === "NotAllowedError") useImage(m);   // autoplay blocked
+        });
+      } else if (!on && !m.video.paused) m.video.pause();
+    } else if (m.img) {
+      var want = on ? m.anim : (m.poster || m.anim);
+      if (m.img.getAttribute("src") !== want) m.img.setAttribute("src", want);
+    }
+  }
+  function tryPlay(m) { if (shouldPlay(m)) setMotion(m, true); }
+  function playAll() { models.forEach(function (m) { setMotion(m, shouldPlay(m)); }); }
+
   ["touchstart", "pointerdown", "click", "keydown", "scroll", "wheel"].forEach(function (ev) {
     window.addEventListener(ev, playAll, { passive: true, capture: true });
   });
   document.addEventListener("visibilitychange", function () { if (!document.hidden) playAll(); });
-  // watchdog: restart any clip the browser paused or stalled behind our back
-  setInterval(function () { if (!document.hidden) playAll(); }, 1000);
+  // watchdog: keep every clip in the state it should be in, and if a video
+  // that should be playing hasn't advanced for 2s, switch it to its animation
+  var started = Date.now();
+  setInterval(function () {
+    if (document.hidden) return;
+    playAll();
+    if (Date.now() - started < 2500) return;
+    models.forEach(function (m) {
+      if (!m.video || !shouldPlay(m)) { m.stuck = 0; return; }
+      var t = m.video.currentTime;
+      // blocked: still paused after we asked it to play; stalled: has data but the clock isn't moving.
+      // A clip that's merely still downloading (readyState < 3) isn't counted as stuck.
+      var blocked = m.video.paused, stalled = m.video.readyState >= 3 && t === m.lastT;
+      m.stuck = (blocked || stalled) ? m.stuck + 1 : 0;
+      m.lastT = t;
+      if (m.stuck >= 2) useImage(m);
+    });
+  }, 1000);
 
   /* ---------- runway loop ---------- */
   var PERIOD = 8, SLOT_MS = 3600, SPACING = PERIOD / N;
   var prog = 0, lastTime = null, paused = false, selected = null;
-  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // the walking runway is the site itself, so it always runs (even with Reduce Motion on)
+  var reduce = false;
 
   function slotQ(m) { return (m.slot * SPACING + prog) % PERIOD; }
   function placeAll() {
@@ -422,9 +463,9 @@
         paused = true;
         hovered = m;
         models.forEach(function (o) {
-          if (o === m) { o.el.classList.remove("dim"); if (o.video) o.video.play().catch(function () {}); }
-          else { o.el.classList.add("dim"); if (o.video) o.video.pause(); }
+          o.el.classList.toggle("dim", o !== m);
         });
+        playAll();
       });
       m.el.addEventListener("mouseleave", function () {
         if (selected || switching) return;
@@ -474,7 +515,7 @@
         m.on = hits.indexOf(m) !== -1;
         m.el.classList.toggle("off", !m.on);
         if (m.on) m.slot = k++;
-        else if (m.video) m.video.pause();
+        else setMotion(m, false);
       });
       placeAll();
       requestAnimationFrame(function () {
@@ -774,9 +815,9 @@
     fillPanels(m.look);
     models.forEach(function (o) {
       o.el.classList.remove("dim");
-      if (o !== m) { o.el.classList.add("gone"); if (o.video) o.video.pause(); }
+      if (o !== m) o.el.classList.add("gone");
     });
-    if (m.video) m.video.play().catch(function () {});
+    playAll();
     m.el.style.zIndex = "50000";
     m.el.classList.add("animating");
     void m.el.offsetWidth;

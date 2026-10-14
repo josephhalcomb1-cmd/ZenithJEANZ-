@@ -48,6 +48,19 @@ def playable(path):
     return out
 
 
+def fallbacks(video):
+    """Animated WebP (plays even where Safari blocks video autoplay) and a still poster."""
+    anim = MEDIA / "anim" / (video.stem.replace(".web", "") + ".webp")
+    poster = MEDIA / "poster" / (video.stem.replace(".web", "") + ".jpg")
+    for out, args in ((anim, ["-vf", "fps=24", "-c:v", "libwebp_anim", "-lossless", "0",
+                              "-quality", "75", "-loop", "0", "-an"]),
+                      (poster, ["-frames:v", "1", "-q:v", "3"])):
+        if not out.exists() or out.stat().st_mtime < video.stat().st_mtime:
+            out.parent.mkdir(exist_ok=True)
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(video), *args, str(out)], check=True)
+    return anim, poster
+
+
 def main():
     videos = []
     if MEDIA.is_dir():
@@ -59,7 +72,9 @@ def main():
     store = json.loads((ROOT / "brand" / "store.json").read_text())
     store.pop("_help", None)
     data = {
-        "models": [{"src": v.relative_to(ROOT).as_posix()} for v in videos],
+        "models": [dict(zip(("src", "anim", "poster"),
+                            (f.relative_to(ROOT).as_posix() for f in (v, *fallbacks(v)))))
+                   for v in videos],
         "looks": brand["looks"],
         "currency": brand["currency"],
         "sizes": brand["sizes"],
