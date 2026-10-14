@@ -335,12 +335,18 @@
       var v = document.createElement("video");
       v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
       v.setAttribute("muted", ""); v.setAttribute("loop", ""); v.setAttribute("autoplay", "");
-      v.setAttribute("playsinline", ""); v.setAttribute("preload", "auto");
+      v.setAttribute("playsinline", ""); v.setAttribute("webkit-playsinline", "");
+      v.setAttribute("preload", "auto"); v.disableRemotePlayback = true;
       v.src = src;
       (function (m, v, i) {
+        // stagger the stride, then start playing only once that seek has landed:
+        // iOS leaves a video frozen on its first frame if play() races the seek
         v.addEventListener("loadedmetadata", function () {
-          if (v.duration && isFinite(v.duration)) v.currentTime = (i / N) * v.duration;
+          if (v.duration && isFinite(v.duration) && i) v.currentTime = (i / N) * v.duration;
+          else tryPlay(m);
         });
+        v.addEventListener("seeked", function () { tryPlay(m); });
+        v.addEventListener("canplay", function () { tryPlay(m); });
         v.addEventListener("error", function () { useFiller(m); });
       })(m, v, i);
       inner.appendChild(v);
@@ -352,11 +358,30 @@
     models.push(m);
   }
 
-  function playAll() {
-    models.forEach(function (m) {
-      if (m.video && m.on) { var r = m.video.play(); if (r && r.catch) r.catch(function () {}); }
-    });
+  // which clips should be moving right now: all of them on the runway,
+  // only the hovered one while hovering, only the selected one in the detail view
+  var hovered = null;
+  function shouldPlay(m) {
+    if (!m.video || !m.on) return false;
+    if (selected) return m === selected;
+    if (hovered) return m === hovered;
+    return !switching;
   }
+  function tryPlay(m) {
+    if (!shouldPlay(m) || !m.video.paused) return;
+    var r = m.video.play();
+    if (r && r.catch) r.catch(function () {});
+  }
+  function playAll() { models.forEach(tryPlay); }
+
+  // Safari (Low Power Mode, data saver) can refuse muted autoplay until the
+  // visitor interacts, so start everything on the first touch, scroll or key
+  ["touchstart", "pointerdown", "click", "keydown", "scroll", "wheel"].forEach(function (ev) {
+    window.addEventListener(ev, playAll, { passive: true, capture: true });
+  });
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) playAll(); });
+  // watchdog: restart any clip the browser paused or stalled behind our back
+  setInterval(function () { if (!document.hidden) playAll(); }, 1000);
 
   /* ---------- runway loop ---------- */
   var PERIOD = 8, SLOT_MS = 3600, SPACING = PERIOD / N;
@@ -391,6 +416,7 @@
       m.el.addEventListener("mouseenter", function () {
         if (selected || switching) return;
         paused = true;
+        hovered = m;
         models.forEach(function (o) {
           if (o === m) { o.el.classList.remove("dim"); if (o.video) o.video.play().catch(function () {}); }
           else { o.el.classList.add("dim"); if (o.video) o.video.pause(); }
@@ -398,6 +424,7 @@
       });
       m.el.addEventListener("mouseleave", function () {
         if (selected || switching) return;
+        hovered = null;
         models.forEach(function (o) { o.el.classList.remove("dim"); });
         paused = reduce ? true : false;
         lastTime = null;
@@ -734,6 +761,7 @@
     if (selected || switching) return;
     clearTimeout(closeTimer);
     selected = m;
+    hovered = null;
     paused = true;
     size = DATA.defaultSize;
     $("pieces").classList.remove("open");
