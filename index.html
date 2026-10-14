@@ -84,11 +84,13 @@
     width: 1200px; height: 2980px;
     transform-origin: 0 0; will-change: transform;
     cursor: pointer;
+    /* the clips are on pure white: multiply drops the white so only the model
+       shows, and models pass in front of each other without a frame */
+    mix-blend-mode: multiply;
   }
   .model .inner {
-    /* 20% wider than the model box so wide silhouettes aren't clipped,
-       while the white frame still occludes only a narrow band */
-    position: absolute; top: 0; bottom: 0; left: -10%; right: -10%;
+    /* as wide as the clip itself, so a full runway stride is never clipped */
+    position: absolute; top: 0; bottom: 0; left: -20%; right: -20%;
     overflow: hidden;
     transition: opacity 0.45s ease;
   }

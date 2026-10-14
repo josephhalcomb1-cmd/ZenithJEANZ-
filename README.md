@@ -40,10 +40,15 @@ python3 -m http.server 8000      # then open http://localhost:8000
 2. Make sure the look at the same position in `brand/products.json` describes it. Give each new piece a unique `handle`.
 3. Run `python3 build.py`.
 
-Raw clips should be full-body shots of a model walking toward the camera on a white
-background. The supplied Higgsfield clips came in 16:9 on a grey backdrop. They were
-cropped to portrait and cut out onto pure white (rembg `u2net_human_seg`). Each clip
-then loops between its two best-matching frames, with a 3-frame blend at the seam.
+Raw clips should be full-body shots of a model walking at a 3/4 angle toward the right
+of the frame, with the camera tracking them. The current clips came from Kling 3.0
+(9:16, 720×1280). Each one was trimmed to the part after the model settles into the
+walk, cut out onto pure white (rembg `birefnet-general-lite`), steadied so the
+model stays the same size and position, and looped over one full stride. Loop
+points come from pose landmarks, so the same leg is forward at both ends.
+
+On the page the clips use `mix-blend-mode: multiply`. The white drops out, so
+models pass in front of each other without a visible frame.
 
 If a clip is missing or fails to load, that model shows a solid `#DCE3EA` fill.
 The fill moves, dims and opens the product view the same way a video does.
