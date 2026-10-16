@@ -53,7 +53,7 @@ def fallbacks(video):
     anim = MEDIA / "anim" / (video.stem.replace(".web", "") + ".webp")
     poster = MEDIA / "poster" / (video.stem.replace(".web", "") + ".jpg")
     for out, args in ((anim, ["-vf", "fps=24", "-c:v", "libwebp_anim", "-lossless", "0",
-                              "-quality", "75", "-loop", "0", "-an"]),
+                              "-quality", "90", "-loop", "0", "-an"]),
                       (poster, ["-frames:v", "1", "-q:v", "3"])):
         if not out.exists() or out.stat().st_mtime < video.stat().st_mtime:
             out.parent.mkdir(exist_ok=True)
