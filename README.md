@@ -45,7 +45,9 @@ of the frame, with the camera tracking them. The current clips came from Kling 3
 (9:16, 720×1280). Each one was trimmed to the part after the model settles into the
 walk, cut out onto pure white (rembg `birefnet-general-lite`), steadied so the
 model stays the same size and position, and looped over one full stride. Loop
-points come from pose landmarks, so the same leg is forward at both ends.
+points come from pose landmarks, so the same leg is forward at both ends. Every
+loop is then retimed to the same 30-frame (1.25 s) stride with optical-flow
+in-betweens, so all models walk at one pace and the seam has no jump.
 
 On the page the clips use `mix-blend-mode: multiply`. The white drops out, so
 models pass in front of each other without a visible frame.
