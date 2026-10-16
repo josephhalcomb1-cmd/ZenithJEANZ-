@@ -22,7 +22,7 @@
     position: absolute; left: 50%; bottom: 0;
     width: 1440px; height: 900px;
     transform-origin: bottom center;
-    background: #fff; overflow: hidden;
+    background: #fff; overflow: visible;
   }
 
   /* ---------- logo ---------- */
@@ -287,7 +287,9 @@
   /* ---------- cover scaling ---------- */
   var coverScale = 1;
   function layout() {
-    coverScale = Math.max(innerWidth / 1440, innerHeight / 900);
+    // fit the runway to the screen height like the reference; only screens wider than
+    // its 2.12:1 frame scale by width
+    coverScale = Math.max(innerHeight / 900, innerWidth / 1907);
     stage.style.transform = "translateX(-50%) scale(" + coverScale + ")";
     logo.style.transform = "scale(" + coverScale + ")";
     // narrow screens: nav wraps to two rows sized to the visible width
@@ -295,14 +297,16 @@
   }
 
   /* ---------- perspective path ---------- */
-  var CX = [-96.5, -1.0, 108.5, 263, 460.5, 694, 1013, 1422.5, 1832];
-  var BY = [506, 521, 554, 600, 662, 736, 831, 961, 1091];
-  var SC = [0.034167, 0.046667, 0.0675, 0.098333, 0.139167, 0.188333, 0.251667, 0.339167, 0.4572];
+  // one point per model gap, measured from the reference runway: models enter at the
+  // left edge, grow about 1.5x per step, and the nearest overflow the bottom and right
+  var CX = [-565, -535, -490, -427, -337, -208, -14, 236, 594, 1065, 1623];
+  var BY = [582, 591, 604, 624, 654, 698, 762, 860, 978, 1184, 1473];
+  var SC = [0.010361, 0.015733, 0.023408, 0.035303, 0.052955, 0.082118, 0.127015, 0.188028, 0.273599, 0.396777, 0.575595];
   var NAT_W = 1200, NAT_H = 2980;
   function lerp(a, b, t) { return a + (b - a) * t; }
   function place(el, q) {
     var i = Math.floor(q), f = q - i;
-    if (i >= 8) { i = 7; f = 1; }
+    if (i >= CX.length - 1) { i = CX.length - 2; f = 1; }
     var s = lerp(SC[i], SC[i + 1], f);
     var cx = lerp(CX[i], CX[i + 1], f);
     var by = lerp(BY[i], BY[i + 1], f);
@@ -430,7 +434,7 @@
   }, 1000);
 
   /* ---------- runway loop ---------- */
-  var PERIOD = 8, SLOT_MS = 3600, SPACING = PERIOD / N;
+  var PERIOD = CX.length - 1, SLOT_MS = 2250, SPACING = PERIOD / N;
   var prog = 0, lastTime = null, paused = false, selected = null;
   // the walking runway is the site itself, so it always runs (even with Reduce Motion on)
   var reduce = false;
