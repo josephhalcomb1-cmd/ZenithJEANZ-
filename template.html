@@ -744,10 +744,13 @@
       s = avail / (NAT_H * cs);
       centreY = top + avail / 2;
     } else {
-      s = (vh * 0.9) / (NAT_H * cs);
-      var maxBoxW = vw - 2 * 300;
-      if (NAT_W * s * cs > maxBoxW) s = maxBoxW / (NAT_W * cs);
-      centreY = vh / 2;
+      // like the reference: the model fills the screen height, head just below the top
+      // edge and feet at the bottom (person is 2606 and starts 213 box-units down)
+      s = (vh * 0.97) / (2606 * cs);
+      var topY = 900 - (vh - vh * 0.05) / cs;  // stage-y of the head
+      var x = 720 - (NAT_W * s) / 2;
+      el.style.transform = "translate3d(" + x + "px," + (topY - 213 * s) + "px,0) scale(" + s + ")";
+      return;
     }
     var mcy = 900 - (vh - centreY) / cs;   // stage-y that maps to centreY
     var x = 720 - (NAT_W * s) / 2;
